@@ -35,10 +35,10 @@ You can then run and build the Docker image:
 $ docker build -t my-java-app .
 $ docker run -it --rm --name my-running-app my-java-app
 
-## Get the Image
+## 配置时区
 
 ```bash
-docker pull ringcentral/jdk:latest
+RUN apk update && apk add --no-cache tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo "Asia/Shanghai" > /etc/timezone && apk del tzdata
 ```
 
 for more detail information please refer this url:
